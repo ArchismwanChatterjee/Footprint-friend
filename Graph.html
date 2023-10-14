@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Line and Bar Graphs with Hover Effect</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        .graph-container {
+            display: inline-block;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CO emissions</h1>
+    <div class="graph-container" id="line-chart"></div>
+    <div class="graph-container" id="bar-chart"></div>
+
+    <script>
+        // Data for the line graph
+        var lineData = [
+            { x: 0, y: 10 },
+            { x: 1, y: 20 },
+            { x: 2, y: 30 },
+            { x: 3, y: 25 },
+            { x: 4, y: 40 },
+            { x: 5, y: 35 }
+        ];
+
+        // Data for the bar graph
+        var barData = [
+            { label: 'CO2', value: 15 },
+            { label: 'CH4', value: 25 },
+        ];
+
+        var margin = { top: 20, right: 20, bottom: 30, left: 60 };
+        var width = 400 - margin.left - margin.right;
+        var height = 400 - margin.top - margin.bottom;
+
+        // Create scales for the line chart
+        var xLine = d3.scaleLinear()
+            .domain([0, d3.max(lineData, function(d) { return d.x; })])
+            .range([0, width]);
+
+        var yLine = d3.scaleLinear()
+            .domain([0, d3.max(lineData, function(d) { return d.y; })])
+            .range([height, 0]);
+
+        // Create an SVG element for the line chart
+        var svgLine = d3.select('#line-chart')
+            .append('svg')
+            .attr('width', width + margin.left + margin.right)
+            .attr('height', height + margin.top + margin.bottom)
+            .append('g')
+            .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+        // Create the line generator with a curve interpolation
+        var line = d3.line()
+            .x(function(d) { return xLine(d.x); })
+            .y(function(d) { return yLine(d.y); })
+            .curve(d3.curveCardinal); // You can adjust the curve type
+
+        // Draw the smooth line for the line chart
+        svgLine.append('path')
+            .datum(lineData)
+            .attr('fill', 'none')
+            .attr('stroke', 'steelblue')
+            .attr('stroke-width', 2)
+            .attr('d', line);
+
+        // Add x-axis for the line chart
+        svgLine.append('g')
+            .attr('transform', 'translate(0,' + height + ')')
+            .call(d3.axisBottom(xLine));
+
+        // Add y-axis for the line chart
+        svgLine.append('g')
+            .call(d3.axisLeft(yLine));
+
+        // Create scales for the bar chart
+        var xBar = d3.scaleBand()
+            .domain(barData.map(function(d) { return d.label; }))
+            .range([0, width])
+            .padding(0.2);
+
+        var yBar = d3.scaleLinear()
+            .domain([0, d3.max(barData, function(d) { return d.value; })])
+            .range([height, 0]);
+
+        // Create an SVG element for the bar chart
+        var svgBar = d3.select('#bar-chart')
+            .append('svg')
+            .attr('width', width + margin.left + margin.right)
+            .attr('height', height + margin.top + margin.bottom)
+            .append('g')
+            .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+        // Draw the bars for the bar chart with hover effect
+        var bars = svgBar.selectAll('rect')
+            .data(barData)
+            .enter()
+            .append('rect')
+            .attr('x', function(d) { return xBar(d.label); })
+            .attr('y', function(d) { return yBar(d.value); })
+            .attr('width', xBar.bandwidth())
+            .attr('height', function(d) { return height - yBar(d.value); })
+            .attr('fill', 'lightcoral') // Default bar color
+            .on('mouseover', function() {
+                d3.select(this).attr('fill', 'orange'); // Change the color
+                d3.select(this).attr('fill', 'orange'); // Change the color on hover
+            })
+            .on('mouseout', function() {
+                d3.select(this).attr('fill', 'lightcoral'); // Restore the default color on mouseout
+            });
+
+        // Add x-axis for the bar chart
+        svgBar.append('g')
+            .attr('transform', 'translate(0,' + height + ')')
+            .call(d3.axisBottom(xBar));
+
+        // Add y-axis for the bar chart
+        svgBar.append('g')
+            .call(d3.axisLeft(yBar));
+    </script>
+</body>
+</html>
