@@ -1,0 +1,84 @@
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+// import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link } from "react-router-dom";
+import "./Header.css";
+import React, { useEffect, useState, useRef } from "react";
+
+function BasicExample({ loggedIn, setLoggedIn, user, setUser }) {
+  const navbarStyle = {
+    borderRadius: "10px", // Adjust this value to control the roundness
+  };
+  const logoImage =
+    "https://cdn.dribbble.com/users/8333652/screenshots/16060858/media/da9669bf6d5da9ddc02ea604dfea7afb.jpg";
+
+  function Logout() {
+    setLoggedIn = false;
+    setUser = "";
+    //useEffect(() => {}, []);
+  }
+
+  return (
+    <div className="container mb-3 mt-1 text-center">
+      <Navbar
+        expand="lg"
+        className="bg-body-tertiary justify-content-center"
+        style={navbarStyle}>
+        <Container className="">
+          {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
+          <Navbar.Brand>
+            <Link to="/">
+              <img
+                src={logoImage} // Use the image link
+                alt="Logo"
+                width="80"
+                height="70"
+                className="d-inline-block align-top"
+                style={navbarStyle}
+              />
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Link className="navbar-brand bold-link" to="/">
+                HOME
+              </Link>
+              <Link className="navbar-brand bold-link" to="/Calculator">
+                CALCULATOR
+              </Link>
+            </Nav>
+            <div
+              className="mx-5"
+              style={{ justifyContent: "right", position: "relative" }}>
+              {loggedIn ? (
+                <>
+                  <h5>Hello, {localStorage.getItem("name")}!</h5>
+                  <button
+                    className="btn btn-primary mx-3"
+                    onClick={() => {
+                      Logout();
+                    }}>
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link className="btn btn-primary mx-3" to="/login">
+                    Login
+                  </Link>
+                  <Link className="btn btn-primary mx-3" to="/register">
+                    Register new user
+                  </Link>
+                </>
+              )}
+            </div>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
+  );
+}
+
+export default BasicExample;

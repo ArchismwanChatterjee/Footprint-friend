@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.set_page_config(layout="wide", page_title="Personal Carbon Calculator")
+
 # Define emission factors (example values, replace with accurate data)
 EMISSION_FACTORS = {
     "India": {
@@ -59,7 +61,6 @@ EMISSION_FACTORS = {
 }
 
 # Set wide layout and page name
-st.set_page_config(layout="wide", page_title="Personal Carbon Calculator")
 
 # Streamlit app code
 st.title("Personal Carbon Calculator App ⚠️")
@@ -67,6 +68,8 @@ st.title("Personal Carbon Calculator App ⚠️")
 # User inputs
 st.subheader("🌍 Your Country")
 country = st.selectbox("Select", ["India","UK","USA","France","Australia","China","South-Africa","Germany","Russia"])
+week = st.number_input("Week:", 0, key="week_number")
+
 
 col1, col2 = st.columns(2)
 
