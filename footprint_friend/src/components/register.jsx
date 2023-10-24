@@ -53,7 +53,7 @@ export default function Register() {
 
   return (
     <div className="Login container" style={containerStyle}>
-      <Link to="/login" className="btn btn-primary">
+      <Link to="/login" className="btn btn-primary mt-4">
         Have an account already?
       </Link>
       <Form onSubmit={handleSubmit}>

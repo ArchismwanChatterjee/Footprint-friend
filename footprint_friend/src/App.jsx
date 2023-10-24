@@ -15,19 +15,25 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState("");
 
+  function logout(params) {
+    setUser("");
+    setLoggedIn(false);
+  }
+
   return (
     <div className="App">
       <Header
         loggedIn={loggedIn}
-        setLoggedIn={setLoggedIn}
+        // setLoggedIn={setLoggedIn}
         user={user}
-        setUser={setUser}
+        // setUser={setUser}
+        logout={logout}
       />
       <Routes>
         <Route
           path="Calculator"
           element={
-            <>{loggedIn ? <Input /> : <Login setLoggedIn={setLoggedIn} />}</>
+             <>{loggedIn ? <Input user={user}/> : <Login setLoggedIn={(bool)=>{setLoggedIn(bool)}} setUsername={(string)=>{setUser(string)}} />}</>
           }
         />
 
@@ -38,21 +44,20 @@ function App() {
               {loggedIn ? (
                 <Home />
               ) : (
-                <Login setLoggedIn={setLoggedIn} setUser={setUser} />
-              )}
+                <Login setLoggedIn={(bool)=>{setLoggedIn(bool)}} setUsername={(string)=>{setUser(string)}} />)}
             </>
           }
         />
 
         <Route
           path="login"
-          element={<Login setLoggedIn={setLoggedIn} setUser={setUser} />}
+          element={<Login setLoggedIn={(bool)=>{setLoggedIn(bool)}} setUsername={(string)=>{setUser(string)}} />}
         />
         <Route path="register" element={<Register />} />
         <Route
           path="insights"
           element={
-            <>{loggedIn ? <Graphs /> : <Login setLoggedIn={setLoggedIn} />}</>
+            <>{loggedIn ? <Graphs /> : <Login setLoggedIn={(bool)=>{setLoggedIn(bool)}} setUsername={(string)=>{setUser(string)}} />}</>
           }
         />
       </Routes>

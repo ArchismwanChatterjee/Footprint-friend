@@ -4,20 +4,13 @@ import Navbar from "react-bootstrap/Navbar";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import React, { useEffect, useState, useRef } from "react";
 
-function BasicExample({ loggedIn, setLoggedIn, user, setUser }) {
+function BasicExample({ loggedIn, user, logout }) {
   const navbarStyle = {
     borderRadius: "10px", // Adjust this value to control the roundness
   };
   const logoImage =
     "https://cdn.dribbble.com/users/8333652/screenshots/16060858/media/da9669bf6d5da9ddc02ea604dfea7afb.jpg";
-
-  function Logout() {
-    setLoggedIn = false;
-    setUser = "";
-    //useEffect(() => {}, []);
-  }
 
   return (
     <div className="container mb-3 mt-1 text-center">
@@ -54,11 +47,11 @@ function BasicExample({ loggedIn, setLoggedIn, user, setUser }) {
               style={{ justifyContent: "right", position: "relative" }}>
               {loggedIn ? (
                 <>
-                  <h5>Hello, {localStorage.getItem("name")}!</h5>
+                  <h5>Hello, {user}!</h5>
                   <button
                     className="btn btn-primary mx-3"
                     onClick={() => {
-                      Logout();
+                      logout();
                     }}>
                     Logout
                   </button>

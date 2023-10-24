@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 
-function RangeExample() {
+function RangeExample({user}) {
   const EMISSION_FACTORS = [
     [0.14, 0.82, 1.25, 0.1], //"India"
     [0.12, 0.21, 1.0, 0.4], //"UK",
@@ -97,7 +97,7 @@ function RangeExample() {
 
     // Create request body
     var requestBody = JSON.stringify({
-      username: localStorage.getItem("name"),
+      username: user,
       co2: sum,
       week: Number(e),
     });

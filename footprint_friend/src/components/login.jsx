@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "./login.css"; // Import the CSS file
 
 export default function Login({ setLoggedIn, setUsername }) {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
+  const navigate = useNavigate();
 
   function validateForm() {
     return user.length > 0 && pass.length > 0;
@@ -42,12 +43,9 @@ export default function Login({ setLoggedIn, setUsername }) {
       .then((result) => {
         const responseBody = JSON.parse(result).body;
         if (responseBody) {
-          console.log("Redirecting to home.html");
-          localStorage.setItem("name", user);
-          var user11 = localStorage.getItem("name");
-          console.log(user11);
           setLoggedIn(true); // Set login state to true
           setUsername(user); // Set the username
+          navigate('/');
         } else {
           console.log("Login failed.");
           alert("Username or password is wrong");
@@ -67,7 +65,7 @@ export default function Login({ setLoggedIn, setUsername }) {
   return (
     <div className="container" style={containerStyle}>
       <div className="d-flex flex-column align-items-center">
-        <Link to="/register" className="btn btn-primary">
+        <Link to="/register" className="btn btn-primary mt-4">
           Haven't Signed up yet?
         </Link>
         <Form onSubmit={handleSubmit}>
