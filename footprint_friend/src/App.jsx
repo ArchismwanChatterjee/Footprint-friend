@@ -33,7 +33,20 @@ function App() {
         <Route
           path="Calculator"
           element={
-             <>{loggedIn ? <Input user={user}/> : <Login setLoggedIn={(bool)=>{setLoggedIn(bool)}} setUsername={(string)=>{setUser(string)}} />}</>
+            <>
+              {loggedIn ? (
+                <Input user={user} />
+              ) : (
+                <Login
+                  setLoggedIn={(bool) => {
+                    setLoggedIn(bool);
+                  }}
+                  setUsername={(string) => {
+                    setUser(string);
+                  }}
+                />
+              )}
+            </>
           }
         />
 
@@ -44,20 +57,50 @@ function App() {
               {loggedIn ? (
                 <Home />
               ) : (
-                <Login setLoggedIn={(bool)=>{setLoggedIn(bool)}} setUsername={(string)=>{setUser(string)}} />)}
+                <Login
+                  setLoggedIn={(bool) => {
+                    setLoggedIn(bool);
+                  }}
+                  setUsername={(string) => {
+                    setUser(string);
+                  }}
+                />
+              )}
             </>
           }
         />
 
         <Route
           path="login"
-          element={<Login setLoggedIn={(bool)=>{setLoggedIn(bool)}} setUsername={(string)=>{setUser(string)}} />}
+          element={
+            <Login
+              setLoggedIn={(bool) => {
+                setLoggedIn(bool);
+              }}
+              setUsername={(string) => {
+                setUser(string);
+              }}
+            />
+          }
         />
         <Route path="register" element={<Register />} />
         <Route
           path="insights"
           element={
-            <>{loggedIn ? <Graphs /> : <Login setLoggedIn={(bool)=>{setLoggedIn(bool)}} setUsername={(string)=>{setUser(string)}} />}</>
+            <>
+              {loggedIn ? (
+                <Graphs user={user} />
+              ) : (
+                <Login
+                  setLoggedIn={(bool) => {
+                    setLoggedIn(bool);
+                  }}
+                  setUsername={(string) => {
+                    setUser(string);
+                  }}
+                />
+              )}
+            </>
           }
         />
       </Routes>

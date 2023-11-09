@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css"; // Import the CSS file
 
 export default function Login({ setLoggedIn, setUsername }) {
@@ -45,7 +45,7 @@ export default function Login({ setLoggedIn, setUsername }) {
         if (responseBody) {
           setLoggedIn(true); // Set login state to true
           setUsername(user); // Set the username
-          navigate('/');
+          navigate("/");
         } else {
           console.log("Login failed.");
           alert("Username or password is wrong");
@@ -54,20 +54,36 @@ export default function Login({ setLoggedIn, setUsername }) {
       .catch((error) => console.log("error", error));
   }
 
+  // const containerStyle = {
+  //   backgroundColor: "#212529", // Change this to the color of your choice
+  //   borderRadius: "20px",
+  //   width: 420,
+  //   opacity: 0.8,
+  //   height: 400,
+  // };
+
   const containerStyle = {
-    backgroundColor: "#212529", // Change this to the color of your choice
-    borderRadius: "10px",
+    position: "absolute",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    margin: "auto",
+    backgroundColor: "#212529",
+    borderRadius: "20px",
     width: 420,
     opacity: 0.8,
-    height: 300,
+    height: 400,
   };
 
   return (
     <div className="container" style={containerStyle}>
       <div className="d-flex flex-column align-items-center">
+        <br></br>
         <Link to="/register" className="btn btn-primary mt-4">
           Haven't Signed up yet?
         </Link>
+        <br></br>
         <Form onSubmit={handleSubmit}>
           <Form.Group size="lg" controlId="email">
             <Form.Label className="text-white">Username</Form.Label>
@@ -81,7 +97,7 @@ export default function Login({ setLoggedIn, setUsername }) {
               />
             </div>
           </Form.Group>
-
+          <br></br>
           <Form.Group size="lg" controlId="password">
             <Form.Label className="text-white">Password</Form.Label>
             <div className="input-container">
@@ -93,7 +109,7 @@ export default function Login({ setLoggedIn, setUsername }) {
               />
             </div>
           </Form.Group>
-
+          <br></br>
           <Button
             className="my-3"
             block

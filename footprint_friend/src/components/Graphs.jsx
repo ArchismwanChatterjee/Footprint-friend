@@ -5,7 +5,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import React, { useEffect, useState, useRef } from "react";
 import * as d3 from "d3";
 
-const LineAndBarCharts = () => {
+const LineAndBarCharts = ({user}) => {
   useEffect(() => {
     // Data for the line graph
     var myHeaders = new Headers();
@@ -13,7 +13,8 @@ const LineAndBarCharts = () => {
 
     // Create request body
     var requestBody = JSON.stringify({
-      username: localStorage.getItem("name"),
+      // username: localStorage.getItem("name"),
+      username:user,
     });
 
     // Create request options
@@ -53,22 +54,22 @@ const LineAndBarCharts = () => {
         }
         console.log(lineData);
         console.log(barData);
-        /*const lineData = [
-          { x: 0, y: 10 },
-          { x: 1, y: 20 },
-          { x: 2, y: 30 },
-          { x: 3, y: 25 },
-          { x: 4, y: 40 },
-          { x: 5, y: 35 },
-        ];*/
+        // const lineData = [
+        //   { x: 0, y: 10 },
+        //   { x: 1, y: 20 },
+        //   { x: 2, y: 30 },
+        //   { x: 3, y: 25 },
+        //   { x: 4, y: 40 },
+        //   { x: 5, y: 35 },
+        // ];
 
         // Data for the bar graph
-        /*const barData = [
-          { label: "a", value: 15 },
-          { label: "b", value: 25 },
-          { label: "c", value: 20 },
-          { label: "d", value: 30 },
-        ];*/
+        // const barData = [
+        //   { label: "a", value: 15 },
+        //   { label: "b", value: 25 },
+        //   { label: "c", value: 20 },
+        //   { label: "d", value: 30 },
+        // ];
 
         // Set the dimensions of the charts
         const margin = { top: 20, right: 20, bottom: 60, left: 60 };

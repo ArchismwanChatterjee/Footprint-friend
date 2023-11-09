@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import Font
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+// import React, { useEffect } from "react";
 
 export default function Home() {
   const cardImageStyle = {
@@ -11,6 +12,37 @@ export default function Home() {
   };
 
   const shareUrl = ""; // Replace with your actual website URL
+
+  // useEffect(() => {
+  //   // Paste the provided script here
+  //   // Make sure to adapt it to JSX syntax if needed
+  //   // Add the necessary import statements at the beginning
+  //   const w = window;
+  //   const d = document;
+  //   const s = "script";
+  //   const o = "Botsonic";
+  //   const f = "https://widget.writesonic.com/CDN/botsonic.min.js";
+
+  //   w["botsonic_widget"] = o;
+  //   w[o] =
+  //     w[o] ||
+  //     function () {
+  //       (w[o].q = w[o].q || []).push(arguments);
+  //     };
+
+  //   const js = d.createElement(s);
+  //   const fjs = d.getElementsByTagName(s)[0];
+
+  //   js.id = o;
+  //   js.src = f;
+  //   js.async = 1;
+  //   fjs.parentNode.insertBefore(js, fjs);
+
+  //   w[o]("init", {
+  //     serviceBaseUrl: "https://api.botsonic.ai",
+  //     token: "fefbbfd7-2654-4da6-9f5d-05a8f1a27d7f",
+  //   });
+  // }, []);
 
   return (
     <div>
