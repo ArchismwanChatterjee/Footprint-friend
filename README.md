@@ -1,78 +1,57 @@
-## Footprint-Friend : Strive for Greener
+![logo (3)](https://github.com/ArchismwanChatterjee/Footprint-friend/assets/115975340/42535848-fd23-401b-bb3a-783fe06c610a)
 
-<p>Carbon footprint reduction begins with individual actions. This website is designed to help you track and minimize your carbon footprint, making a positive impact on the environment. Also get various insights and how to improve your carbon footprint with the help of our AI Model and chatbot. Even the users can share and compare their progress with their friends.</p>
+# Footprint-Friend : Strive for Greener Future
+## Your Personal AI-Carbon Coach for a Sustainable Future.
 
-The website can be viewed from here ⬇️
 
-[link1](https://footprint-friend-90ccd.web.app/) and [link2](https://footprint-friend-90ccd.firebaseapp.com/)
+Footprint Friend is designed to help you track and minimize your carbon footprint,we use modern AI apis powered by react to build a powerful carbon footprint calculator also providing various insights.
+- Enter the week
+- Select the approx distance travelled, meals consumption, waste generated, electricity consumption.
+- See the ✨Magic ✨ Happen.
 
-# Getting Started with Create React App
+## Techstack used:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Design using Figma, Adobe Photosop.
+- Front-end using React js & Bootstrap.
+- Python script to generate your recommendation to reduce carbon footprint emission depending upon your provided information.
+- AWS (DynamoDB) for storing data/ Creating users etc.
+- Node.js as package manager & runtime environment.
+- D3.js for designing the graphs to visualize your emission rate over the weeks
 
-## Available Scripts
+## Installation:
 
-In the project directory, you can run:
+- clone this repository
 
-### `npm start`
+- Footprint Friend requires [Node.js](https://nodejs.org/) v18+ to run.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Install the dependencies and devDependencies and start the server.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```sh
+cd footprint_friend
+npm i
+npm run
+```
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Development:
 
-### `npm run build`
+Want to contribute? Great!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Footprint Friend uses npm + React.js for fast developing.
+Buid once, make a change in your file and instantaneously see your updates!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+checkout *Installation* above to set it up locally.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+make sure all changes you make are in a new branch, refer the [docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) to know more about branching
 
-### `npm run eject`
+## Deployment:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Our website is deployed using firebase hosting the links are available ⬇️
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Firebase: [Link1](https://footprint-friend-90ccd.web.app/)  and  [Link2](https://footprint-friend-90ccd.firebaseapp.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# License
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+MIT
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Free Software, Hell Yeah!**
