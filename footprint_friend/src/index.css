@@ -1,22 +1,18 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg'); /* Replace with the URL of your image */
-  background-size: cover; 
+  background-image: url("https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg");
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  /* cursor: url(icons8-footprint-30.png), auto; */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-#Botsonic-wrapper{
-  background-color: rgba(0, 0, 0, 0) !important;
-  /* left:0px !important; */
 }
